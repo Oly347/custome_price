@@ -1,10 +1,6 @@
-* {
-  box-sizing: border-box;
-}
 
-body {
-  background-color: #f1f1f1;
-}
+
+
 
 #regForm {
   background-color: #ffffff;
@@ -220,6 +216,130 @@ button:hover {
 .img_d:hover {
   transform: scale(2.0); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.success-message {
+  text-align: center;
+  max-width: 500px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.success-message__icon {
+  max-width: 75px;
+}
+
+.success-message__title {
+  color: #3DC480;
+  transform: translateY(25px);
+  opacity: 0;
+  transition: all 200ms ease;
+}
+.active .success-message__title {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.success-message__content {
+  color: #B8BABB;
+  transform: translateY(25px);
+  opacity: 0;
+  transition: all 200ms ease;
+  transition-delay: 50ms;
+}
+.active .success-message__content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.icon-checkmark circle {
+  fill: #3DC480;
+  transform-origin: 50% 50%;
+  transform: scale(0);
+  transition: transform 200ms cubic-bezier(0.22, 0.96, 0.38, 0.98);
+}
+.icon-checkmark path {
+  transition: stroke-dashoffset 350ms ease;
+  transition-delay: 100ms;
+}
+.active .icon-checkmark circle {
+  transform: scale(1);
+}
+.banner_success{
+color: white;
+padding: 60px;
+width: 100%;
+
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+
+/* background-image: url('../andrew-small-126502-unsplash.jpg'); */
+
+
+background-image: linear-gradient( to right bottom, rgba(13, 111, 107, 0.8), rgba(140, 180, 131, 0.8)), url(../andrew-small-126502-unsplash.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    
+}
+
+
+
+
+.center-outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+  }
+  
+  .center-inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  }
+  
+  /* Essential CSS - Makes the effect work */
+  
+  
+  
+  .bubbles {
+  display: inline-block;
+  font-family: arial;
+  position: relative;
+  }
+  
+  .bubbles h1 {
+  position: relative;
+  margin: 1em 0 0;
+  font-family: 'Luckiest Guy', cursive;
+  color: #fff;
+  z-index: 2;
+  font-weight: bold;
+  }
+  
+  .individual-bubble {
+  position: absolute;
+  border-radius: 100%;
+  bottom: 10px;
+  background-color: #fff;
+  z-index: 1;
+  }
+  
+  
 /* body {
   display: -webkit-box;
   display: -moz-box;
