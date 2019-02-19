@@ -65,64 +65,28 @@ $('.table tbody tr').click(function(event) {
   
   function validateForm() {
     // This function deals with validation of the form fields
-        var cpu = document.getElementsByName('CPU');
-        var genValue = false;
-
-        for(var i=0; i<cpu.length;i++){
-            if(cpu[i].checked == true){
-                genValue = true;
-                
-               
-            }
-        }
-
-
-
-        // var cab = document.getElementsByName('CAB');
-        // var genValue = false;
-
-        // for(var i=0; i<cab.length;i++){
-        //     if(cpu[i].checked == true){
-        //         genValue = true;
-                
-        //         break;
-        //     }
-        // }
-
-
-
-
-
-
-
-        if(!genValue){
-            sweetAlert("Oops...", "Please choose your option!", "error");
-            return false;
-        }
-
-
-
-
-
-
-
-
-
+    var x, y, i, valid = true;
+    x = document.getElementsByClassName("tab");
+    y = x[currentTab].getElementsByTagName("input");
+    
+    // A loop that checks every input field in the current tab:
+    for (i = 0; i < y.length; i++) {
+      // If a field is empty...
+      if (y[i].value == "") {
+        // add an "invalid" class to the field:
+        y[i].className += " invalid";
+        // and set the current valid status to false
+        valid = false;
+      }
+    }
     // If the valid status is true, mark the step as finished and valid:
-    if (genValue) {
+    if (valid) {
       document.getElementsByClassName("step")[currentTab].className += " finish";
     }
-    return genValue; // return the valid status
-}
+    return valid; // return the valid status
+  }
   
-
-
-
-
-
-
-
-function fixStepIndicator(n) {
+  function fixStepIndicator(n) {
     // This function removes the "active" class of all steps...
     var i, x = document.getElementsByClassName("step");
     for (i = 0; i < x.length; i++) {

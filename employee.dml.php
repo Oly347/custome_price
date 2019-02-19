@@ -17,7 +17,7 @@ $insert_array=  array(
 	'SMPS' => $_POST['SMPS'],
 	'RAM' => $_POST['RAM'],
     'TOTAL' => $_POST['RAM']+$_POST['SMPS']+$_POST['CAB']+$_POST['CPU'],
-    'email_id' => $_POST['email_id'],
+    // 'email_id' => $_POST['email_id'],
     'session_id' => $_POST['temp_id'],
     
 
@@ -27,7 +27,7 @@ $insert_array=  array(
 $insert= $obj_emp->InsertIntoEmployees($insert_array);
      if ($insert) {
         
-        header('Location:index.php');
+        header('Location:Home.php');
         exit();
 
        

@@ -1,16 +1,4 @@
-<?php
-// Include config file
-include ('system/database.php');
-include ('employee.cls.php');
 
-
-$obj_emp = new employee_inc ;
-
-
-// $rowPrice = $obj_emp->getPrice();
-
-$rowEmployee = $obj_emp->getEmployee();
-?>
 
 
 <!DOCTYPE html>
@@ -22,16 +10,20 @@ $rowEmployee = $obj_emp->getEmployee();
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
 
-<div class="container"><a href="create.php" class="form-group btn btn-success pull-right">Add New Employee</a><br>
+<div class="container" >
+
+<div class="row" style="overflow-x:auto;" >
   <h2>Basic Table</h2>
             
   <table class='table table-bordered table-striped'>
     <thead>
       <tr>
         <th>ID</th>
+        <th>TEMPID</th>
         <th>CPU</th>
         <th>CAB</th>
         <th>SMPS</th>
@@ -40,32 +32,16 @@ $rowEmployee = $obj_emp->getEmployee();
       </tr>
     </thead>
     <tbody>
-    <?php
-
-    foreach ($rowEmployee as  $row_employee) {
-                       
-    ?>
-      <tr>
-        <td><?php echo $row_employee['id'];?></td>
-        <td><?php echo $row_employee['CPU'];?></td>
-        <td><?php echo $row_employee['CAB'];?></td>
-        <td><?php echo $row_employee['SMPS'];?></td>
-        <td><?php echo $row_employee['RAM'];?></td>
-        <td><?php echo $row_employee['TOATAL'];?></td>
-        <td>
-        <a class="btn btn-danger" href="delete.php?id=<?php echo $row_employee['id'];?>" role="button">Delete</a>
-        <a class="btn btn-info" href="update.php?id=<?php echo $row_employee['id'];?>" role="button">Update</a>
-        </td>
-      </tr>
-      <?php
-       }
-
-      ?>
     
       
     </tbody>
   </table>
+
+
 </div>
 
+<a class="btn btn-lg btn-default edit_btn" href="#">But CPU Now »</a>
+<a class="btn btn-lg btn-default edit_btn" href="#">Buy Monitor & accessories »</a>
+</div>
 </body>
 </html>
