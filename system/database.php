@@ -95,6 +95,23 @@ class clsConnection
         }
         
     }
+
+    public function RowInsertId($records,$sqlins="")
+    {
+        $rs=$this->dbLink->Execute($sqlins);
+        $insertSQL = $this->dbLink->GetInsertSQL($rs, $records); 
+        $ins_rs=$this->dbLink->Execute($insertSQL);
+        $ins_rs=$this->dbLink->insert_Id();
+        if(!$ins_rs)
+        {
+            return 0;
+        }
+        else
+        {
+            return $ins_rs;
+        }
+        
+    }
     public function RowUpdate($records,$sqlupdate="")
     {
         $rs=$this->dbLink->Execute($sqlupdate);

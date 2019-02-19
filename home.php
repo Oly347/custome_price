@@ -1,4 +1,39 @@
+<?php
+// Include config file
 
+//echo  $_SESSION['session_id'];
+
+//create a session and assign a value
+//$_SESSION['session_id'] =rand(10,1000);
+
+session_start();
+
+
+//print session
+// print($_SESSION['session_id']);
+//remove/destroy particular session or
+// unset($_SESSION['session_name']);
+// //destroy all the sessions'
+// // remove all session variables
+// session_unset();
+// // destroy the session
+// session_destroy();
+
+include ('system/database.php');
+include ('employee.cls.php');
+
+
+$obj_emp = new employee_inc ;
+
+
+$rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
+
+
+
+// $rowEmployee = $obj_emp->getEmployee();
+// $rowEmployee = $obj_emp->getEmployeeById($_GET['id']);
+// echo $_GET['id'];
+?>
 
 
 <!DOCTYPE html>
@@ -52,7 +87,7 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>TEMPID</th>
+        
         <th>CPU</th>
         <th>CAB</th>
         <th>SMPS</th>
@@ -61,8 +96,25 @@
       </tr>
     </thead>
     <tbody>
-    
-      
+
+    <?php
+
+    foreach ($rowEmployee as  $row_employee) {
+                       
+    ?>
+    <tr>
+        <td><?php echo $row_employee['id'];?> </td>
+        <td><?php echo $row_employee['CPU'];?> </td>
+        <td> <?php echo $row_employee['CAB'];?></td>
+        <td> <?php echo $row_employee['SMPS'];?></td>
+        <td><?php echo $row_employee['RAM'];?> </td>
+        <td> <?php echo $row_employee['Total'];?></td>
+        
+      </tr>
+      <?php
+       }
+
+      ?>
     </tbody>
   </table>
 

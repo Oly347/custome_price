@@ -1,38 +1,35 @@
 <?php
 // Include config file
 
-
-session_start();
-
-
-if (isset($_SESSION['user'])) {
-  // logged in
-} else {
-  $_SESSION['session_id'] =rand(10,1000);
-}
-
-
-
-//create a session and assign a value
-//$_SESSION['session_id'] =rand(10,1000);
-
-
-
-//print session
-// print($_SESSION['session_id']);
-//remove/destroy particular session or
-// unset($_SESSION['session_name']);
-// //destroy all the sessions'
-// // remove all session variables
-// session_unset();
-// // destroy the session
-// session_destroy();
-
 include ('system/database.php');
 include ('employee.cls.php');
 
 
 $obj_emp = new employee_inc ;
+session_start();
+
+// echo isset($_SESSION['user']);
+if (!isset($_SESSION['user']))
+ {
+  if(!isset($_SESSION['temp_user']))
+  {
+    $obj_emp = new employee_inc ;
+
+   $insert_array=  array(
+	 'login_time' => date('Y-m-d'),
+	);
+     
+
+ $insert= $obj_emp->InsertIntotempUser($insert_array);
+
+
+ $_SESSION['temp_user'] = $insert;
+}
+}
+
+
+
+
 
 
 
@@ -579,7 +576,7 @@ body label {
               </div> -->
 
 
-              <input type="hidden" name="temp_id"  class="form-control" value="<?php echo $_SESSION['session_id'];?>"></p>
+              <!-- <input type="hidden" name="temp_id"  class="form-control" value="<?php echo $_SESSION['session_id'];?>"></p> -->
               
               
   <div style="overflow:auto;">
