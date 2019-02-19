@@ -41,7 +41,7 @@
 </div>
 
 <a class="btn btn-lg btn-default edit_btn" href="#">But CPU Now »</a>
-<a class="btn btn-lg btn-default edit_btn" href="#">Buy Monitor & accessories »</a>
+<a class="btn btn-lg btn-default edit_btn" href="#">Buy Monitor & Accessories »</a>
 </div>
 </body>
 </html>
