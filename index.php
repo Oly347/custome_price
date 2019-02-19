@@ -4,8 +4,17 @@
 
 session_start();
 
+
+if (isset($_SESSION['user'])) {
+  // logged in
+} else {
+  $_SESSION['session_id'] =rand(10,1000);
+}
+
+
+
 //create a session and assign a value
-$_SESSION['session_id'] =rand(10,1000);
+//$_SESSION['session_id'] =rand(10,1000);
 
 
 
