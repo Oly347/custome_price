@@ -228,9 +228,19 @@ button:hover {
 
 
 
+@media only screen and (max-width: 400px) {
+
+.success-message {
+  text-align: center;
+  max-width: 100px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 
-
+}
 
 .success-message {
   text-align: center;
@@ -245,6 +255,14 @@ button:hover {
   max-width: 75px;
 }
 
+
+
+@media only screen and (max-width: 400px) {
+  .success-message__icon {
+    max-width: 30px;
+  }
+
+}
 .success-message__title {
   color: #3DC480;
   transform: translateY(25px);
@@ -293,11 +311,14 @@ background-attachment: fixed;
 /* background-image: url('../andrew-small-126502-unsplash.jpg'); */
 
 
-background-image: linear-gradient( to right bottom, rgba(13, 111, 107, 0.8), rgba(140, 180, 131, 0.8)), url(../andrew-small-126502-unsplash.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+background-image: linear-gradient( to right bottom, rgba(13, 111, 107, 0.8), rgba(140, 180, 131, 0.8)), url(../andrew-small-126502-unsplash.jpg);
     
 }
 
+.custome_alert{
 
+margin-top: 30px;
+}
 
 
 .center-outer {
@@ -338,8 +359,113 @@ background-image: linear-gradient( to right bottom, rgba(13, 111, 107, 0.8), rgb
   background-color: #fff;
   z-index: 1;
   }
+  .button_custome{
+ margin-top: 50px;
+
+
+
+  }
+  .cont{
+    position: relative;
+    width: 25%;
+    height: 450px;
+    padding: 10px 25px;
+    margin: 10vh auto;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid black;
+  }
   
+  .form{ width: 100%; height: 100%; }
   
+  h1, h2, .user, .pass{ 
+    text-align: center;
+    display: block;
+  }
+  
+  h1{ 
+    color: #606060;
+    font-weight: bold;
+    font-size: 40px;
+    margin: 30px auto;
+  }
+  
+  .user, .pass, .login{
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+  
+  .user, .pass{ background: #ecf0f1; }
+  
+  .login{
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    background: #3598dc;
+    transition: background 0.4s ease;
+  }
+  
+  .login:hover{ background: #3570dc; }
+  
+  @media only screen and (min-width : 280px) {
+    .cont{ width: 90% }
+  }
+  
+  @media only screen and (min-width : 480px) {
+    .cont{ width: 60% }
+  }
+  
+  @media only screen and (min-width : 768px) {
+    .cont{ width: 40% }
+  }
+  
+  @media only screen and (min-width : 992px) {
+    .cont{ width: 30% }
+  }
+  
+  h2{ color: black; margin-top: 25px; 
+}
+
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+    margin-top: 10px;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
 /* body {
   display: -webkit-box;
   display: -moz-box;

@@ -41,13 +41,17 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
+
+
+
 <div class= " banner_success">
 
 
@@ -80,6 +84,12 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
         <p>You can buy with in 34 minutes</p>
     </div>
 </div>
+
+
+
+<div class="alert custome_alert alert-info">
+  <strong>Info!</strong> You Can choose only one configuration setep at a time
+</div>
 <div class="row" style="overflow-x:auto;" >
   <h2>Basic Table</h2>
             
@@ -93,6 +103,7 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
         <th>SMPS</th>
         <th>RAM</th>
         <th>TOTAL</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -102,6 +113,7 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
     foreach ($rowEmployee as  $row_employee) {
                        
     ?>
+    
     <tr>
         <td><?php echo $row_employee['id'];?> </td>
         <td><?php echo $row_employee['CPU'];?> </td>
@@ -109,6 +121,10 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
         <td> <?php echo $row_employee['SMPS'];?></td>
         <td><?php echo $row_employee['RAM'];?> </td>
         <td> <?php echo $row_employee['Total'];?></td>
+        <td><a class="btn btn-danger"  href="delete.php?id=<?php echo $row_employee['id'];?>" role="button"> <i class="fa fa-trash" aria-hidden="true"></i>
+           Delete</a> 
+        
+        </td>
         
       </tr>
       <?php
@@ -121,8 +137,8 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
 
 </div>
 
-<a class="btn  btn-default edit_btn" href="#">But CPU Now »</a>
-<a class="btn  btn-default edit_btn" href="#">Buy with Monitor & Accessories »</a>
+<a class="btn  btn-default edit_btn" href="login.php">Buy CPU Now <i class="fa fa-shopping-cart"></i></a>
+<a class="btn  btn-default edit_btn" href="#">Buy with Monitor & Accessories <i class="fa fa-desktop"></i></a>
 </div>
 </body>
 

@@ -2,10 +2,10 @@
 // Include config file
 
 
-session_start();
+// session_start();
 
-//create a session and assign a value
-$_SESSION['session_id'] =rand(10,1000);
+// //create a session and assign a value
+// $_SESSION['session_id'] =rand(10,1000);
 
 
 
@@ -45,7 +45,7 @@ $obj_comp = new component_inc ;
 
 <div class="container">
   <h2>Component Details</h2>
-  <form action="employee.dml.php" method="post" enctype="multipart/form-data">
+  <form action="component.dml.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="c_name">Name</label>
       <input type="text" class="form-control" id="c_name" placeholder="Enter Component Name" name="c_name">

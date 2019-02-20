@@ -81,7 +81,7 @@ class employee_inc{
 
     function DeleteFrom($id)
        {
-        $del_sql="DELETE FROM employees WHERE id=".$id;
+        $del_sql="DELETE FROM price_list WHERE id=".$id;
         $delete=$this->db_con->deleteRow($del_sql);
 
         if($delete)
@@ -90,7 +90,7 @@ class employee_inc{
         }
         else
         {
-            return $delete;
+            return false;
         }
        }
 
@@ -148,7 +148,12 @@ function component_inc()
            return $rows;
        }
    
-     
+       function getComponentDetails(){
+        $sSql = "SELECT * FROM component_details";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+        }
+    
                    
    
    
