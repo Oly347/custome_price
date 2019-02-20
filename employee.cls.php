@@ -214,5 +214,99 @@ function component_inc()
 
 
 
+    class user_inc{
+
+        private $db_con;
+        function user_inc()
+               {
+                $this->db_con=new clsConnection;
+           
+               }
+              function getEmployee(){
+               $sSql = "SELECT * FROM employees";
+                   $rows = $this->db_con->GetAllRows($sSql);
+                   return $rows;
+               }
+           
+               function getPrice(){
+                  $sSql = "SELECT * FROM price_master";
+                   $rows = $this->db_con->GetAllRows($sSql);
+                   return $rows;
+               }
+           
+           
+               function getEmployeeById($id){
+                   $sSql="SELECT * FROM price_list WHERE id='".$id."' ";
+                   $rows = $this->db_con->GetAllRows($sSql);
+                   return $rows;
+               }
+           
+               function getComponentDetails(){
+                $sSql = "SELECT * FROM component_details";
+                    $rows = $this->db_con->GetAllRows($sSql);
+                    return $rows;
+                }
+            
+                           
+           
+           
+               function SetUpdateEmployees($post_fields,$id)
+                               {
+                                   $sSql="SELECT * FROM employees WHERE id='".$id."' ";
+                                   
+                                   
+                                   echo $update=$this->db_con->RowUpdate($post_fields,$sSql);
+                                   if($update==0)
+                                   {
+                                       return false;
+                                   }
+                                   else
+                                   {
+                                       return true;
+                                   }
+                           }
+           
+           
+               function DeleteFrom($id)
+                  {
+                   $del_sql="DELETE FROM employees WHERE id=".$id;
+                   $delete=$this->db_con->deleteRow($del_sql);
+           
+                   if($delete)
+                   {
+                       return true;
+                   }
+                   else
+                   {
+                       return $delete;
+                   }
+                  }
+           
+           
+           
+         public function InsertIntoUserDetails($post_fileds)
+          {
+          $sSql="SELECT * FROM user WHERE id=-1";
+          $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+          if($insrt==0)
+           {
+            return false;
+            }
+            else
+            {
+            return true;
+            }
+                    
+            }    
+            
+         
+           
+           
+           
+            }
+        
+
+
+
 
 ?>

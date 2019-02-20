@@ -32,7 +32,7 @@ $insert= $obj_emp->InsertIntoEmployees($insert_array);
 
        
     }else {
-        header('Location:create.php');
+        header('Location:index.php');
         exit();
 
 
