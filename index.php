@@ -311,7 +311,7 @@ body label {
               </td>
               <td>3.4 GHz	6Core</td>
               <td><img src="andres-jasso-1159243-unsplash.jpg" class="img_d" alt="" style="width:50px; "></td>
-              <td>₹17253.00</td>
+              <td>Rs.17253.00</td>
               <td><input type="radio" class="option-input radio" name="CPU"  value="1" /></td>
             </tr>
             <tr>
@@ -320,7 +320,7 @@ body label {
                 </td>
                 <td>Regular Shipping</td>
                 <td><img src="andres-jasso-1159243-unsplash.jpg" class="img_d" alt="" style="width:50px; "></td>
-                <td>₹17253.00</td>
+                <td>Rs.17253.00</td>
                 <td><input type="radio" class="option-input radio" name="CPU"  value="2" /></td>
               </tr>
               <tr>
@@ -329,7 +329,7 @@ body label {
                   </td>
                   <td>Regular Shipping</td>
                   <td><img src="andres-jasso-1159243-unsplash.jpg"  class="img_d" alt="" style="width:50px; "></td>
-                  <td>₹17253.00</td>
+                  <td>Rs.17253.00</td>
                   <td><input type="radio" class="option-input radio" name="CPU"  value="3" /></td>
                 </tr>
                 <tr>
@@ -338,7 +338,7 @@ body label {
                     </td>
                     <td>Regular Shipping</td>
                     <td><img src="andres-jasso-1159243-unsplash.jpg" class="img_d" alt="" style="width:50px; "></td>
-                    <td>₹17253.00</td>
+                    <td>Rs.17253.00</td>
                     <td><input type="radio" class="option-input radio" name="CPU"  value="4" /></td>
                   </tr>
             <!-- <tr>
