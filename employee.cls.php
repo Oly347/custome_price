@@ -154,7 +154,42 @@ function component_inc()
             return $rows;
         }
     
-                   
+        function getComponentDetailsCPU(){
+            $sSql = "SELECT * FROM component_details_cpu";
+                $rows = $this->db_con->GetAllRows($sSql);
+                return $rows;
+        }    
+            
+            
+        function getComponentDetailsMB(){
+                $sSql = "SELECT * FROM component_details_mboard";
+                    $rows = $this->db_con->GetAllRows($sSql);
+                    return $rows;
+        }  
+                
+                
+
+        function getComponentDetailsCB(){
+                    $sSql = "SELECT * FROM component_details_cab";
+                        $rows = $this->db_con->GetAllRows($sSql);
+                        return $rows;
+        }  
+
+
+
+        function getComponentDetailsSMPS(){
+            $sSql = "SELECT * FROM component_details_smps";
+                $rows = $this->db_con->GetAllRows($sSql);
+                return $rows;
+     }  
+
+
+     function getComponentDetailsHDD(){
+        $sSql = "SELECT * FROM component_details_hdd";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+ }  
+
    
    
        function SetUpdateEmployees($post_fields,$id)
@@ -191,9 +226,9 @@ function component_inc()
    
    
    
- public function InsertIntoComponentDetails($post_fileds)
+ public function InsertIntoComponentDetailsCpu($post_fileds)
   {
-  $sSql="SELECT * FROM component_details WHERE id=-1";
+  $sSql="SELECT * FROM component_details_cpu WHERE id=-1";
   $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
   if($insrt==0)
    {
@@ -206,7 +241,69 @@ function component_inc()
             
     }    
     
- 
+    
+    public function InsertIntoComponentDetailsMotherBoard($post_fileds)
+  {
+  $sSql="SELECT * FROM component_details_mboard WHERE id=-1";
+  $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+  if($insrt==0)
+   {
+    return false;
+    }
+    else
+    {
+    return true;
+    }
+            
+    }    
+
+
+    public function InsertIntoComponentDetailsCabinet($post_fileds)
+  {
+  $sSql="SELECT * FROM component_details_cab WHERE id=-1";
+  $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+  if($insrt==0)
+   {
+    return false;
+    }
+    else
+    {
+    return true;
+    }
+            
+    }    
+
+
+
+    public function InsertIntoComponentDetailsSmps($post_fileds)
+  {
+  $sSql="SELECT * FROM component_details_smps WHERE id=-1";
+  $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+  if($insrt==0)
+   {
+    return false;
+    }
+    else
+    {
+    return true;
+    }
+            
+    }    
+    
+    public function InsertIntoComponentDetailsHDD($post_fileds)
+    {
+    $sSql="SELECT * FROM component_details_hdd WHERE id=-1";
+    $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+    if($insrt==0)
+     {
+      return false;
+      }
+      else
+      {
+      return true;
+      }
+              
+      }  
    
    
    
@@ -251,7 +348,21 @@ function component_inc()
                     $sSql="SELECT * FROM user WHERE email_id='".$email_id."' AND password='".$password."'  " ;
                     $rows = $this->db_con->GetAllRows($sSql);
                     return $rows;
-                }        
+                } 
+                
+                
+
+
+
+
+
+
+
+                function checkAdmin($user_name,$password){
+                    $sSql="SELECT * FROM admin_details WHERE user_name='".$user_name."' AND password='".$password."'  " ;
+                    $rows = $this->db_con->GetAllRows($sSql);
+                    return $rows;
+                } 
            
            
                function SetUpdateEmployees($post_fields,$id)

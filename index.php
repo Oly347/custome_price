@@ -27,9 +27,27 @@ if (!isset($_SESSION['user']))
  $_SESSION['userName']= "Guest";
 
 
+
+
+
+
+ 
 }
 }
 
+$obj_comp = new component_inc ;
+
+
+//$rowPrice = $obj_emp->getPrice();
+
+$rowCPUComponent = $obj_comp->getComponentDetailsCPU();
+$rowMBComponent = $obj_comp->getComponentDetailsMB();
+
+$rowCABComponent = $obj_comp->getComponentDetailsCB();
+
+$rowSMPSComponent = $obj_comp->getComponentDetailsSMPS();
+
+$rowHDDComponent = $obj_comp->getComponentDetailsHDD();
 
 
 
@@ -71,42 +89,24 @@ welcome <?php echo $_SESSION['userName']; ?>
             </tr>
           </thead>
           <tbody>
+
+          <?php
+                
+                    foreach ($rowCPUComponent as  $row_cpu_component) {
+                                       
+                    ?>
             <tr>
-              <td>
-                 CPU1
-              </td>
-              <td>3.4 GHz	6Core</td>
-              <td><img src="andres-jasso-1159243-unsplash.jpg" class="img_d" alt="" style="width:50px; "></td>
-              <td>Rs.17253.00</td>
-              <td><input type="radio" class="option-input radio" name="CPU"  value="1" /></td>
+              <td><?php echo $row_cpu_component['component_name'];?></td>
+              <td><?php echo $row_cpu_component['component_details'];?></td>
+              
+              <td><img src ="upload/<?php echo $row_cpu_component['component_image'];?>" height=50 width=80 /> </td>
+              <td><?php echo $row_cpu_component['component_price'];?></td>
+              <td><input type="radio" class="option-input radio" name="CPU"  value="<?php echo $row_cpu_component['component_price'];?>" /></td>
             </tr>
-            <tr>
-                <td>
-                   CPU2
-                </td>
-                <td>Regular Shipping</td>
-                <td><img src="andres-jasso-1159243-unsplash.jpg" class="img_d" alt="" style="width:50px; "></td>
-                <td>Rs.17253.00</td>
-                <td><input type="radio" class="option-input radio" name="CPU"  value="2" /></td>
-              </tr>
-              <tr>
-                  <td>
-                     CPU3
-                  </td>
-                  <td>Regular Shipping</td>
-                  <td><img src="andres-jasso-1159243-unsplash.jpg"  class="img_d" alt="" style="width:50px; "></td>
-                  <td>Rs.17253.00</td>
-                  <td><input type="radio" class="option-input radio" name="CPU"  value="3" /></td>
-                </tr>
-                <tr>
-                    <td>
-                       CPU4
-                    </td>
-                    <td>Regular Shipping</td>
-                    <td><img src="andres-jasso-1159243-unsplash.jpg" class="img_d" alt="" style="width:50px; "></td>
-                    <td>Rs.17253.00</td>
-                    <td><input type="radio" class="option-input radio" name="CPU"  value="4" /></td>
-                  </tr>
+            <?php
+                       }
+                
+                      ?>
             <!-- <tr>
               <td>
                 <input type="radio" name="radios" id="radio2" value="2"/>

@@ -61,10 +61,10 @@ if ($l>0) {
   header('Location:Home.php');
 }
 
-  else{
-    header('Location:login.php');
-
-  }
+else {
+  $_SESSION['errMsg'] = "Invalid username or password";
+}
+//header("Location: login.php");
 
 
 }
@@ -110,10 +110,14 @@ if ($l>0) {
       <a href="register.php"  class="btn btn-primary btn-outline" >I'm New <i class="fa fa-user-plus"></i></a>
 
       <a href="#"  class="btn btn-success btn-outline" style="float:right">forget Password <i class="fa fa-key" aria-hidden="true"></i></a>
-
+      <div id="errMsg">
+            <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
+        </div>
+        <?php unset($_SESSION['errMsg']); ?>
     </form>
+    <!-- <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div> -->
 <!-- 
-    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div> -->
+    <div style = "font-size:11px; color:#cc0000; margin-top:10px"></div> -->
 
     <!--  -->
   
