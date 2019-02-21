@@ -24,6 +24,9 @@ if (!isset($_SESSION['user']))
 
 
  $_SESSION['temp_user'] = $insert;
+ $_SESSION['userName']= "Guest";
+
+
 }
 }
 
@@ -50,7 +53,7 @@ if (!isset($_SESSION['user']))
  <link rel="stylesheet" href="css/style.css"> 
 
 <body>
-
+welcome <?php echo $_SESSION['userName']; ?>
 <form id="regForm" action="employee.dml.php" method="post">
   <h1>Choose Your PC</h1>
   

@@ -50,7 +50,8 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
 </head>
 <body>
 
-
+<?php echo $_SESSION['userName'];
+?>
 
 <div class= " banner_success">
 

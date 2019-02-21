@@ -247,7 +247,11 @@ function component_inc()
                     return $rows;
                 }
             
-                           
+                function checkLogin($email_id,$password){
+                    $sSql="SELECT * FROM user WHERE email_id='".$email_id."' AND password='".$password."'  " ;
+                    $rows = $this->db_con->GetAllRows($sSql);
+                    return $rows;
+                }        
            
            
                function SetUpdateEmployees($post_fields,$id)

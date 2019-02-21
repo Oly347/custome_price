@@ -1,31 +1,77 @@
 <?php
-   include("config.php");
-   session_start();
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
+//    include("config.php");
+//    session_start();
+include ('system/database.php');
+include ('employee.cls.php');
+session_start();
+// $total_price=0;
+// foreach ($_POST['price'] as $price) {
+//     $total_price+= $price;
+// }
+
+
+$obj_user = new user_inc ;
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+//       // username and password sent from form 
       
-      $myusername = mysqli_real_escape_string($db,$_POST['email_id']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+//       $myusername = mysqli_real_escape_string($db,$_POST['email_id']);
+//       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT id FROM user WHERE email_id = '$myusername' and password = '$mypassword'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      //$active = $row['active'];
+//       $sql = "SELECT id FROM user WHERE email_id = '$myusername' and password = '$mypassword'";
+//       $result = mysqli_query($db,$sql);
+//       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+//       //$active = $row['active'];
       
-      $count = mysqli_num_rows($result);
+//       $count = mysqli_num_rows($result);
       
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-         //session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
+//       // If result matched $myusername and $mypassword, table row must be 1 row
+//        print_r($row);
+       
+//        exit;
+//       if($count == 1) {
+//          //session_register("myusername");
+
+//          $_SESSION['user'] = $row;
          
-         header("location: welcome.php");
-      }else {
-        $_SESSION['errMsg'] = "Invalid username or password";
- }
-   }
+//          header("location: welcome.php");
+//          //echo $_GET[id];
+//       }else {
+//         $_SESSION['errMsg'] = "Invalid username or password";
+
+
+
+//  }
+
+
+
+$loginUser = $obj_user->checkLogin($_POST['email_id'],$_POST['password']);
+$l=count($loginUser);
+if ($l>0) {
+foreach ($loginUser as $key => $value) {
+
+
+ $_SESSION['user'] = $value['id'];  // user id from table
+ $_SESSION['userName']= $value['email_id'];  // email or name
+  # code...
+}
+}
+$l=count($loginUser);
+if ($l>0) {
+        
+  header('Location:Home.php');
+}
+
+  else{
+    header('Location:login.php');
+
+  }
+
+
+}
+
+
+
+
 ?>
 
 
@@ -69,11 +115,7 @@
 <!-- 
     <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div> -->
 
-    <div id="errMsg">
-            <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
-        </div>
-        <?php unset($_SESSION['errMsg']); ?>
-  </div>
+    <!--  -->
   
   
   
