@@ -259,12 +259,12 @@ $obj_comp = new component_inc ;
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Add Processor</h1>
+          <h1 class="h3 mb-4 text-gray-800">Add Speaker</h1>
 
 
           <div class="container">
   <h2>Component Details</h2>
-  <form action="component.dml.php" method="post" enctype="multipart/form-data">
+  <form action="speaker.dml.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="c_name">Model name</label>
       <input type="text" class="form-control" id="c_name" placeholder="Enter Model Name" name="c_name">

@@ -286,7 +286,7 @@ $userDetails = $obj_user->getUserDetails();
 
 
                     <tr>
-                      <td><?php echo $row_smps_component['id'];?></td>
+                      <td><?php echo $row_smps_component['name'];?></td>
                       <td><?php echo $row_smps_component['phone_number'];?></td>
                       <td><?php echo $row_smps_component['email_id'];?></td>
                       <td><?php echo $row_smps_component['address'];?></td>

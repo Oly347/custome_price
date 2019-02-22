@@ -16,7 +16,12 @@ session_start();
    </head>
    
    <body>
-   <?php  echo  $_SESSION['user'] ?>;
+    <?php  
+    
+   //  echo  $_SESSION['user'] 
+    
+    
+    ?>
       
 
 

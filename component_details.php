@@ -19,8 +19,8 @@
 // // destroy the session
 // session_destroy();
 
-include ('system/database.php');
-include ('employee.cls.php');
+include ('admin/system/database.php');
+include ('admin/employee.cls.php');
 
 
 $obj_comp = new component_inc ;

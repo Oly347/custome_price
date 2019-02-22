@@ -147,6 +147,19 @@ function component_inc()
            $rows = $this->db_con->GetAllRows($sSql);
            return $rows;
        }
+
+
+       function getCPUById($id){
+        $sSql="SELECT * FROM component_details_cpu WHERE id='".$id."' ";
+        $rows = $this->db_con->GetAllRows($sSql);
+        return $rows;
+      }
+
+      function getCABById($id){
+        $sSql="SELECT * FROM component_details_cab WHERE id='".$id."' ";
+        $rows = $this->db_con->GetAllRows($sSql);
+        return $rows;
+      }
    
        function getComponentDetails(){
         $sSql = "SELECT * FROM component_details";

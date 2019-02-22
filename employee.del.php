@@ -1,7 +1,7 @@
 <?php
 // Include config file
-include ('system/database.php');
-include ('employee.cls.php');
+include ('admin/system/database.php');
+include ('admin/employee.cls.php');
 
 session_start();
 $obj_emp = new employee_inc ;  

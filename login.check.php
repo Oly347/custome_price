@@ -1,7 +1,7 @@
 <?php
 
-include ('system/database.php');
-include ('employee.cls.php');
+include ('admin/system/database.php');
+include ('admin/employee.cls.php');
 //session_start();
 // $total_price=0;
 // foreach ($_POST['price'] as $price) {

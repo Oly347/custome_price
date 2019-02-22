@@ -19,14 +19,21 @@ session_start();
 // // destroy the session
 // session_destroy();
 
-include ('system/database.php');
-include ('employee.cls.php');
+include ('admin/system/database.php');
+include ('admin/employee.cls.php');
 
 
 $obj_emp = new employee_inc ;
 
 
 $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
+
+
+$obj_comp = new component_inc ;
+
+$rowCPUComponent = $obj_comp->getComponentDetailsCPU();
+
+//$cpuRow = $obj_comp->getCPUById($rowEmployee['CPU']);
 
 
 
@@ -50,7 +57,10 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
 </head>
 <body>
 
-<?php echo $_SESSION['userName'];
+<?php
+
+
+// echo $_SESSION['userName'];
 ?>
 
 <div class= " banner_success">
@@ -75,7 +85,7 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
 
 
 
-<div class="success-message">
+<!-- <div class="success-message">
     <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
         <circle cx="38" cy="38" r="36"/>
         <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7"/>
@@ -84,14 +94,14 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
     <div class="success-message__content">
         <p>You can buy with in 34 minutes</p>
     </div>
-</div>
+</div> -->
 
 
 
-<div class="alert custome_alert alert-info">
+<div class="alert custome_alert alert-info" >
   <strong>Info!</strong> You Can choose only one configuration setep at a time
 </div>
-<div class="row" style="overflow-x:auto;" >
+<div class="row"  style="display: none;" >
   <h2>Basic Table</h2>
             
   <table class='table table-bordered table-striped'>
@@ -102,7 +112,11 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
         <th>CPU</th>
         <th>CAB</th>
         <th>SMPS</th>
+        <th>Mothetr Board</th>
+        <th>Haed Drive</th>
         <th>RAM</th>
+        <th>Graphic Card</th>
+
         <th>TOTAL</th>
         <th>Action</th>
       </tr>
@@ -118,10 +132,13 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
     <tr>
         <td><?php echo $row_employee['id'];?> </td>
         <td><?php echo $row_employee['CPU'];?> </td>
-        <td> <?php echo $row_employee['CAB'];?></td>
-        <td> <?php echo $row_employee['SMPS'];?></td>
+        <td><?php echo $row_employee['CAB'];?></td>
+        <td><?php echo $row_employee['SMPS'];?></td>
+        <td><?php echo $row_employee['Morherboard'];?> </td>
+        <td><?php echo $row_employee['Harddrive'];?> </td>
         <td><?php echo $row_employee['RAM'];?> </td>
-        <td> <?php echo $row_employee['Total'];?></td>
+        <td><?php echo $row_employee['GCARD'];?> </td>
+        <td><?php echo $row_employee['Total'];?></td>
         <td><a class="btn btn-danger"  href="delete.php?id=<?php echo $row_employee['id'];?>" role="button"> <i class="fa fa-trash" aria-hidden="true"></i>
            Delete</a> 
         
@@ -134,6 +151,354 @@ $rowEmployee = $obj_emp->getEmployeeById($_SESSION['temp_user']);
       ?>
     </tbody>
   </table>
+
+
+</div>
+
+<?php
+
+$rowCPUComponent = $obj_comp->getComponentDetailsCPU();
+$cpuRow = $obj_comp->getCPUById($row_employee['CPU']);
+$cabinetRow = $obj_comp->getCABById($row_employee['CAB']);
+$smpsRow = $obj_comp->getSMPSById($row_employee['SMPS']);
+$motherBoardRow = $obj_comp->getMotherBoardById($row_employee['Morherboard']);
+$hardDriveRow = $obj_comp->getHardDriveById($row_employee['Harddrive']);
+$memoryRow = $obj_comp->getRAMById($row_employee['RAM']);
+$graphicCardRow = $obj_comp->getGCARDById($row_employee['GCARD']);
+
+
+
+?>
+
+
+
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>CPU Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>CPU Model</th>
+        <th>CPU Price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($cpuRow as  $row_cpu_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_cpu_component['component_name'];?> </td>
+        <td><?php echo $row_cpu_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>Cabinet Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>Cabinet Model </th>
+        <th>Cabinet price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($cabinetRow as  $row_cab_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_cab_component['component_name'];?> </td>
+        <td><?php echo $row_cab_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>SMPS Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>SMPS Model </th>
+        <th>Cabinet price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($smpsRow as  $row_smps_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_smps_component['component_name'];?> </td>
+        <td><?php echo $row_smps_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>Motherboard Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>Mother board Model </th>
+        <th>Mother board price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($motherBoardRow as  $row_mother_board_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_mother_board_component['component_name'];?> </td>
+        <td><?php echo $row_mother_board_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>Hard Drive Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>HDD Model </th>
+        <th>HDD price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($hardDriveRow as  $row_hard_drive_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_hard_drive_component['component_name'];?> </td>
+        <td><?php echo $row_hard_drive_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>Memory(RAM) Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>RAM Model </th>
+        <th>RAM price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($memoryRow as  $row_memory_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_memory_component['component_name'];?> </td>
+        <td><?php echo $row_memory_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+
+
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>Graphic Card Choose</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        
+        
+        <th>Graphic Card Model </th>
+        <th>Graphic Card price</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    foreach ($graphicCardRow as  $row_graphic_card_component) {
+                       
+    ?>
+    
+    <tr>
+        <td><?php echo $row_graphic_card_component['component_name'];?> </td>
+        <td><?php echo $row_graphic_card_component['component_price'];?> </td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+    </tbody>
+  </table>
+
+
+  
+
+
+</div>
+
+
+<?php
+$total=$row_cab_component['component_price']+$row_cpu_component['component_price']+
+$row_smps_component['component_price']+$row_mother_board_component['component_price']+
+$row_hard_drive_component['component_price']+$row_memory_component['component_price']+
+$row_graphic_card_component['component_price'];
+?>
+
+<div class="row" style="overflow-x:auto;" >
+  <h2>Total amount</h2>
+            
+  <table class='table table-bordered table-striped'>
+    <!-- <thead>
+      <tr>
+        
+        
+        <th>CPU- Model</th>
+        <th>CPU- Price</th>
+        
+        
+      </tr>
+    </thead> -->
+    <tbody>
+
+    <?php
+
+    foreach ($cabinetRow as  $row_cab_component) {
+                       
+    ?>
+    
+    <tr>
+        <td>Total Amount</td>
+        <td><?php echo $total; ?></td> 
+      </tr>
+      <?php
+       }
+
+      ?>
+
+
+    </tbody>
+  </table>
+
+
+  
 
 
 </div>

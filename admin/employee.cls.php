@@ -159,7 +159,48 @@ function component_inc()
                 $rows = $this->db_con->GetAllRows($sSql);
                 return $rows;
         }    
-            
+        function getCPUById($id){
+            $sSql="SELECT * FROM component_details_cpu WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
+    
+          function getCABById($id){
+            $sSql="SELECT * FROM component_details_cab WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
+
+          function getSMPSById($id){
+            $sSql="SELECT * FROM component_details_smps WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
+
+          function getMotherBoardById($id){
+            $sSql="SELECT * FROM component_details_mboard WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
+
+          function getHardDriveById($id){
+            $sSql="SELECT * FROM component_details_hdd WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
+
+          function getRAMById($id){
+            $sSql="SELECT * FROM component_details_memory WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
+
+
+          function getGCARDById($id){
+            $sSql="SELECT * FROM component_details_graphic_card WHERE id='".$id."' ";
+            $rows = $this->db_con->GetAllRows($sSql);
+            return $rows;
+          }
             
         function getComponentDetailsMB(){
                 $sSql = "SELECT * FROM component_details_mboard";
@@ -188,7 +229,7 @@ function component_inc()
         $sSql = "SELECT * FROM component_details_hdd";
             $rows = $this->db_con->GetAllRows($sSql);
             return $rows;
-  }  
+     }  
 
 
 
@@ -231,6 +272,32 @@ function component_inc()
 
    function getComponentDetailsSSD(){
     $sSql = "SELECT * FROM component_details_ssd";
+        $rows = $this->db_con->GetAllRows($sSql);
+        return $rows;
+   } 
+
+   function getComponentDetailsMonitor(){
+    $sSql = "SELECT * FROM component_details_monitor";
+        $rows = $this->db_con->GetAllRows($sSql);
+        return $rows;
+   } 
+
+   function getComponentDetailsKeyboardMouse(){
+    $sSql = "SELECT * FROM component_details_keyboardmouse";
+        $rows = $this->db_con->GetAllRows($sSql);
+        return $rows;
+   } 
+
+
+   function getComponentDetailsHeadphone(){
+    $sSql = "SELECT * FROM component_details_headphone";
+        $rows = $this->db_con->GetAllRows($sSql);
+        return $rows;
+   } 
+
+
+   function getComponentDetailsSpeaker(){
+    $sSql = "SELECT * FROM component_details_speaker";
         $rows = $this->db_con->GetAllRows($sSql);
         return $rows;
    } 
@@ -312,35 +379,35 @@ function component_inc()
 
 
     public function InsertIntoComponentDetailsCabinet($post_fileds)
-  {
-  $sSql="SELECT * FROM component_details_cab WHERE id=-1";
-  $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
-  if($insrt==0)
-   {
-    return false;
-    }
-    else
     {
-    return true;
-    }
-            
+    $sSql="SELECT * FROM component_details_cab WHERE id=-1";
+    $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+    if($insrt==0)
+    {
+        return false;
+        }
+        else
+        {
+        return true;
+        }
+                
     }    
 
 
 
     public function InsertIntoComponentDetailsSmps($post_fileds)
-  {
-  $sSql="SELECT * FROM component_details_smps WHERE id=-1";
-  $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
-  if($insrt==0)
-   {
-    return false;
-    }
-    else
     {
-    return true;
-    }
-            
+    $sSql="SELECT * FROM component_details_smps WHERE id=-1";
+    $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+    if($insrt==0)
+    {
+        return false;
+        }
+        else
+        {
+        return true;
+        }
+                    
     }    
     
     public function InsertIntoComponentDetailsHDD($post_fileds)
@@ -455,8 +522,73 @@ function component_inc()
                 
     } 
    
+
+    public function InsertIntoComponentDetailsMonitor($post_fileds)
+      {
+      $sSql="SELECT * FROM component_details_monitor WHERE id=-1";
+      $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+      if($insrt==0)
+       {
+        return false;
+        }
+        else
+        {
+        return true;
+        }
+                
+    } 
+
+
+
+    public function InsertIntoComponentDetailsMouseKeyBoard($post_fileds)
+      {
+      $sSql="SELECT * FROM component_details_keyboardmouse WHERE id=-1";
+      $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+      if($insrt==0)
+       {
+        return false;
+        }
+        else
+        {
+        return true;
+        }
+                
+    } 
+
+
+
+    public function InsertIntoComponentDetailsHeadphone($post_fileds)
+      {
+      $sSql="SELECT * FROM component_details_headphone WHERE id=-1";
+      $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+      if($insrt==0)
+       {
+        return false;
+        }
+        else
+        {
+        return true;
+        }
+                
+    } 
+
+
+    public function InsertIntoComponentDetailsSpeaker($post_fileds)
+      {
+      $sSql="SELECT * FROM component_details_speaker WHERE id=-1";
+      $insrt=$this->db_con->RowInsert($post_fileds,$sSql);
+      if($insrt==0)
+       {
+        return false;
+        }
+        else
+        {
+        return true;
+        }
+                
+    } 
    
-    }
+    }// class end component
 
 
 

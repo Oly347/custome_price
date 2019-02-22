@@ -1,11 +1,32 @@
 <?php
-session_start();
+// Include config file
 
+
+ session_start();
+
+// //create a session and assign a value
+// $_SESSION['session_id'] =rand(10,1000);
+
+
+
+//print session
+// print($_SESSION['session_id']);
+//remove/destroy particular session or
+// unset($_SESSION['session_name']);
+// //destroy all the sessions'
+// // remove all session variables
+// session_unset();
+// // destroy the session
+// session_destroy();
+
+include ('system/database.php');
+include ('employee.cls.php');
+
+
+$obj_comp = new component_inc ;
 
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,13 +88,13 @@ session_start();
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Components List</span>
+          <span>Components</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
+          <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">List Components:</h6>
             <a class="collapse-item" href="component_list.php">System Unit:</a>
-            <a class="collapse-item" href="accessories.php">Monitor and accessories:</a>
+            <a class="collapse-item" href="cards.html">Monitor and accessories:</a>
           </div>
         </div>
       </li>
@@ -104,27 +125,27 @@ session_start();
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Component</span>
         </a>
         <div id="collapsePages" class="collapse " aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">System Unit:</h6>
-            <a class="collapse-item" href="processor.php">Processor</a>
-            <a class="collapse-item" href="motherboard.php">Motherboard</a>
-            <a class="collapse-item" href="cabinet.php">Cabinet</a>
-            <a class="collapse-item" href="smps.php">SMPS</a>
-            <a class="collapse-item" href="harddrive.php">Hard Disk Drive</a>
-            <a class="collapse-item" href="memory.php">Memory</a>
-            <a class="collapse-item" href="ssd">SSD</a>
-            <a class="collapse-item" href="graphic_card.php">Graphic Card</a>
-            <!-- <a class="collapse-item" href="#">Video Card</a> -->
-            <a class="collapse-item" href="sound_card.php">Sound Card</a>
-            <a class="collapse-item" href="dvd_drive.php">DVD DRIVE</a>
-            <a class="collapse-item" href="wireless_adapter.php">Wireless Adapter</a>
-            <!-- <a class="collapse-item" href="#">Bluetooth Reciver</a> -->
+            <a class="collapse-item active" href="processor.php">Processor</a>
+            <a class="collapse-item" href="#">Motherboard</a>
+            <a class="collapse-item" href="#">Cabinet</a>
+            <a class="collapse-item" href="#">SMPS</a>
+            <a class="collapse-item" href="#">Hard Disk Drive</a>
+            <a class="collapse-item" href="#">Memory</a>
+            <a class="collapse-item" href="#">SSD</a>
+            <a class="collapse-item" href="#">Graphic Card</a>
+            <a class="collapse-item" href="#">Video Card</a>
+            <a class="collapse-item" href="#">Sound Card</a>
+            <a class="collapse-item" href="#">DVD DRIVE</a>
+            <a class="collapse-item" href="#">WIFI Reciver</a>
+            <a class="collapse-item" href="#">Bluetooth Reciver</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Monitor and accessories</h6>
             <a class="collapse-item" href="#">Monitor</a>
@@ -144,10 +165,10 @@ session_start();
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-  <a class="nav-link" href="user_list.php">
-    <i class="fas fa-fw fa-table"></i>
-    <span>User List</span></a>
-</li>
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tables</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -238,7 +259,43 @@ session_start();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+          <h1 class="h3 mb-4 text-gray-800">Add Headphone</h1>
+
+
+          <div class="container">
+  <h2>Component Details</h2>
+  <form action="headphone.dml.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="c_name">Model name</label>
+      <input type="text" class="form-control" id="c_name" placeholder="Enter Model Name" name="c_name">
+    </div>
+
+
+    <div class="form-group">
+      <label for="c_dis">Discriptrion</label>
+      <input type="text" class="form-control" id="c_dis" placeholder="Enter Discription" name="c_dis">
+    </div>
+
+
+    <div class="form-group">
+      <label for="c_price">Price</label>
+      <input type="text" class="form-control" id="c_price" placeholder="Enter Price" name="c_price">
+    </div>
+    <div class="form-group">
+      <label for="c_price">Image of Component</label>
+      <input type="file" class="form-control" id="c_pic"  name="c_pic">
+    </div>
+
+
+    
+    
+    
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+
 
         </div>
         <!-- /.container-fluid -->

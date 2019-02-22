@@ -1,7 +1,7 @@
 <?php
 // Include config file
-include ('admin/system/database.php');
-include ('admin/employee.cls.php');
+include ('system/database.php');
+include ('employee.cls.php');
 $obj_comp = new component_inc ;
 
 
@@ -27,10 +27,10 @@ $insert_array=  array(
 );
      
 
-$insert= $obj_comp->InsertIntoComponentDetails($insert_array);
+$insert= $obj_comp->InsertIntoComponentDetailsMonitor($insert_array);
      if ($insert) {
         
-        header('Location:component_list.php');
+        header('Location:accessories.php');
         exit();
 
        
